@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>InterpolatedLogging.Microsoft.Extensions.Logging</id>
+    <version>5.0.0</version>
+    <title>InterpolatedLogging.Microsoft.Extensions.Logging</title>
+    <authors>Rick Drizin</authors>
+    <owners>Rick Drizin</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/Drizin/InterpolatedLogging</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Extensions to Microsoft.Extensions.Logging to write Log Messages using Interpolated Strings without losing Structured Property Names</description>
+    <copyright>Copyright Rick Drizin 2021</copyright>
+    <tags>dapper;query builder</tags>
+    <repository type="git" url="https://github.com/Drizin/InterpolatedLogging" commit="8270e1870a0421dd80fc71e7011cc89a30907aec" />
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\net472\InterpolatedLogging.*" target="lib\net472" />
+    <file src="bin\Release\netstandard2.0\InterpolatedLogging.*" target="lib\netstandard2.0" />
+  </files>
+</package>
