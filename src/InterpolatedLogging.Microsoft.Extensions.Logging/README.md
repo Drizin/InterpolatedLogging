@@ -1,15 +1,6 @@
 # Interpolated Logging
 
-**Extensions to Logging Libraries to write Log Messages using Interpolated Strings without losing Structured Property Names** 
-
-Current Status:
-
-Library | Status | NuGet Package
------------- | -------------
-[**Serilog**](https://github.com/Drizin/InterpolatedLogging/tree/main/src/InterpolatedLogging.Serilog) | OK | https://www.nuget.org/packages/InterpolatedLogging.Serilog/
-[**Microsoft.Extensions.Logging**](https://github.com/Drizin/InterpolatedLogging/tree/main/src/InterpolatedLogging.Microsoft.Extensions.Logging) | OK | https://www.nuget.org/packages/InterpolatedLogging.Microsoft.Extensions.Logging/
-NLog | Pending | 
-log4net | Pending | 
+**Extensions to Microsoft.Extensions.Logging Library to write Log Messages using Interpolated Strings without losing Structured Property Names**
 
 Most logging libraries support **structured logging**:
 
@@ -34,28 +25,19 @@ This library solves this problem by creating extensions to popular logging libra
 logger.InterpolatedInfo($"User {new { UserName = name }} created Order {new { OrderId = orderId}} at {new { Date = now }}, operation took {new { OperationElapsedTime = elapsedTime }}ms");
 ```
 
-# Serilog Quickstart
+# Quickstart
 
-1. Install the [NuGet package InterpolatedLogging.Serilog](https://www.nuget.org/packages/InterpolatedLogging.Serilog)
+1. Install the [NuGet package InterpolatedLogging.Microsoft.Extensions.Logging](https://www.nuget.org/packages/InterpolatedLogging.Microsoft.Extensions.Logging)
 1. Start using like this:
 ```cs
-using Serilog; // for easier use our extensions use the same namespace of Serilog
+using Microsoft.Extensions.Logging; // for easier use our extensions use the same namespace of Microsoft.Extensions.Logging
 // ...
 
 logger.InterpolatedInformation($"User {new { UserName = name }} created Order {new { OrderId = orderId}} at {new { Date = now }}, operation took {new { OperationElapsedTime = elapsedTime }}ms");
 // there are also extensions for Debug, Verbose,  etc, and also the overloads which take an Exception
 
-// in plain Serilog this would be equivalent of:
+// in plain Microsoft.Extensions.Logging this would be equivalent of:
 //logger.Information("User {UserName} created Order {OrderId} at {Date}, operation took {OperationElapsedTime}ms", name, orderId, DateTime.Now, elapsedTime);
-```
-
-In Serilog there's the `@` destructuring operator which makes a single property be stored with its internal structure (instead of just invoking `ToString()` and saving the serialized property). You can still use that operator by using the `@` outside of the interpolation:
-
-```cs
-var input = new { Latitude = 25, Longitude = 134 };
-logger.Information($"Processed @{ new { SensorInput = input }} in { new { TimeMS = time}:000} ms.");
-// in plain Serilog this would be equivalent of:
-//logger.Information("Processed {@SensorInput} in {TimeMS:000}ms.", input, time);
 ```
 
 ## Raw strings
