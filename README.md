@@ -1,6 +1,6 @@
 # Interpolated Logging
 
-**Extensions to Logging Libraries to write Log Messages using Interpolated Strings without losing Structured Property Names**
+**Extensions to Logging Libraries to write Log Messages using Interpolated Strings without losing Structured Property Names** (currently only for Serilog, in the future we'll extend Microsoft Extensions Logging, NLog, etc).
 
 Most logging libraries support **structured logging**:
 
@@ -25,6 +25,37 @@ This library solves this problem by creating extensions to popular logging libra
 logger.InterpolatedInfo($"User {new { UserName = name }} created Order {new { OrderId = orderId}} at {new { Date = now }}, operation took {new { OperationElapsedTime = elapsedTime }}ms");
 ```
 
+# Serilog Quickstart
+
+1. Install the [NuGet package InterpolatedLogging.Serilog](https://www.nuget.org/packages/InterpolatedLogging.Serilog)
+1. Start using like this:
+```cs
+using Serilog; // for easier use our extensions use the same namespace of Serilog
+// ...
+
+logger.InterpolatedInformation($"User {new { UserName = name }} created Order {new { OrderId = orderId}} at {new { Date = now }}, operation took {new { OperationElapsedTime = elapsedTime }}ms");
+// there are also extensions for Debug, Verbose,  etc, and also the overloads which take an Exception
+
+// in plain Serilog this would be equivalent of:
+//logger.Information("User {UserName} created Order {OrderId} at {Date}, operation took {OperationElapsedTime}ms", name, orderId, DateTime.Now, elapsedTime);
+```
+
+In Serilog there's the `@` destructuring operator which makes a single property be stored with its internal structure (instead of just invoking `ToString()` and saving the serialized property). You can still use that operator by using the `@` outside of the interpolation:
+
+```cs
+var input = new { Latitude = 25, Longitude = 134 };
+logger.Information($"Processed @{ new { SensorInput = input }} in { new { TimeMS = time}:000} ms.");
+// in plain Serilog this would be equivalent of:
+//logger.Information("Processed {@SensorInput} in {TimeMS:000}ms.", input, time);
+```
+
+## raw strings
+
+If you want to embed raw strings in your queries (don't want them to be saved as structured properties), you don't need to create an anonymous object and you can just use the **raw modifier**:
+
+```cs
+logger.InterpolatedInformation($"User {new { UserName = name }} logged as {role:raw}");
+```
 
 # Collaborate
 
