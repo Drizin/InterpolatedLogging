@@ -22,7 +22,7 @@ namespace InterpolatedLogging.Tests
             DateTime now = DateTime.Now;
             var msg = new StructuredLogMessage($"User '{new { UserName = name }}' created Order {new { OrderId = orderId}} at {new { Date = now }}, operation took {new { OperationElapsedTime = elapsedTime }}ms");
 
-            Assert.AreEqual("User '{UserName}' created Order {OrderId} {Date}, operation took {OperationElapsedTime}ms", msg.MessageTemplate);
+            Assert.AreEqual("User '{UserName}' created Order {OrderId} at {Date}, operation took {OperationElapsedTime}ms", msg.MessageTemplate);
             Assert.AreEqual(4, msg.Properties.Length);
             Assert.AreEqual(name, msg.Properties[0]);
             Assert.AreEqual(orderId, msg.Properties[1]);

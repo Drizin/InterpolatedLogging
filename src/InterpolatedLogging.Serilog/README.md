@@ -1,6 +1,6 @@
 # Interpolated Logging
 
-**Extensions to Logging Libraries to write Log Messages using Interpolated Strings without losing Structured Property Names** (currently only for Serilog, in the future we'll extend Microsoft Extensions Logging, NLog, etc).
+**Extensions to Serilog Logging Library to write Log Messages using Interpolated Strings without losing Structured Property Names**
 
 Most logging libraries support **structured logging**:
 
@@ -25,7 +25,7 @@ This library solves this problem by creating extensions to popular logging libra
 logger.InterpolatedInfo($"User {new { UserName = name }} created Order {new { OrderId = orderId}} at {new { Date = now }}, operation took {new { OperationElapsedTime = elapsedTime }}ms");
 ```
 
-# Serilog Quickstart
+# Quickstart
 
 1. Install the [NuGet package InterpolatedLogging.Serilog](https://www.nuget.org/packages/InterpolatedLogging.Serilog)
 1. Start using like this:

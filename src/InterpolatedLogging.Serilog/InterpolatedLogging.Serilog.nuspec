@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>InterpolatedLogging</id>
-    <version>1.0.0</version>
+    <id>InterpolatedLogging.Serilog</id>
+    <version>1.0.1</version>
     <title>InterpolatedLogging.Serilog</title>
     <authors>Rick Drizin</authors>
     <owners>Rick Drizin</owners>
