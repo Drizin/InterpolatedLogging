@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>InterpolatedLogging</id>
+    <version>1.0.0</version>
+    <title>InterpolatedLogging.Serilog</title>
+    <authors>Rick Drizin</authors>
+    <owners>Rick Drizin</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/Drizin/InterpolatedLogging</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Extensions to Serilog to write Log Messages using Interpolated Strings without losing Structured Property Names</description>
+    <copyright>Copyright Rick Drizin 2021</copyright>
+    <tags>dapper;query builder</tags>
+    <repository type="git" url="https://github.com/Drizin/InterpolatedLogging" commit="8bac1eedcd8a5551ec6115eb95c4a119eec2d0e0" />
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\net472\InterpolatedLogging.*" target="lib\net472" />
+    <file src="bin\Release\netstandard2.0\InterpolatedLogging.*" target="lib\netstandard2.0" />
+  </files>
+</package>
