@@ -51,7 +51,7 @@ namespace InterpolatedLogging.Tests
         }
 
         [Test]
-        public void SerilogDestructure()
+        public void SerilogDestructureAnonymous()
         {
 
             var input = new { Latitude = 25, Longitude = 134 };
@@ -62,11 +62,43 @@ namespace InterpolatedLogging.Tests
             var msg = new StructuredLogMessage($"Processed @{ new { SensorInput = input }} in { new { TimeMS = time}:000} ms.");
 
             Assert.AreEqual("Processed {@SensorInput} in {TimeMS:000} ms.", msg.MessageTemplate);
-            //Assert.AreEqual("Processed {SensorInput} in {TimeMS:000} ms.", msg.MessageTemplate);
             Assert.AreEqual(2, msg.Properties.Length);
             Assert.AreEqual(input, msg.Properties[0]);
             Assert.AreEqual(time, msg.Properties[1]);
         }
+        [Test]
+        public void SerilogDestructureNamedPropertySyntax()
+        {
+
+            var input = new { Latitude = 25, Longitude = 134 };
+            var time = 34;
+
+            // Serilog has this @ destructuring operator, which in plain Serilog should be used as " {@variable} " 
+            // but here in interpolated strings you should use " @{variable} " 
+            var msg = new StructuredLogMessage($"Processed {NP(input, "@SensorInput")} in {NP(time, "TimeMS"):000} ms.");
+
+            Assert.AreEqual("Processed {@SensorInput} in {TimeMS:000} ms.", msg.MessageTemplate);
+            Assert.AreEqual(2, msg.Properties.Length);
+            Assert.AreEqual(input, msg.Properties[0]);
+            Assert.AreEqual(time, msg.Properties[1]);
+        }
+        [Test]
+        public void SerilogDestructureColonSyntax()
+        {
+
+            var input = new { Latitude = 25, Longitude = 134 };
+            var time = 34;
+
+            // Serilog has this @ destructuring operator, which in plain Serilog should be used as " {@variable} " 
+            // but here in interpolated strings you should use " @{variable} " 
+            var msg = new StructuredLogMessage($"Processed {input:@SensorInput} in {time:TimeMS:000} ms.");
+
+            Assert.AreEqual("Processed {@SensorInput} in {TimeMS:000} ms.", msg.MessageTemplate);
+            Assert.AreEqual(2, msg.Properties.Length);
+            Assert.AreEqual(input, msg.Properties[0]);
+            Assert.AreEqual(time, msg.Properties[1]);
+        }
+
 
         [Test]
         public void ColonSyntax_with_ExplicitFormat()

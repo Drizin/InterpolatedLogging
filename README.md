@@ -92,11 +92,20 @@ logger.InterpolatedInformation($"User {new { UserName = name }} logged as {role:
 
 ## Serilog destructuring operator
 
-Serilog has this `@` destructuring operator which makes a single property be stored with its internal structure (instead of just invoking `ToString()` and saving the serialized property). You can still use that operator by using the `@` outside of the interpolation:
+Serilog has this `@` destructuring operator which makes a single property be stored with its internal structure (instead of just invoking `ToString()` and saving the serialized property).
 
 ```cs
 var input = new { Latitude = 25, Longitude = 134 };
+
+// NP-syntax:
+logger.Information($"Processed {NP(input, "@SensorInput")} in {NP(time, "TimeMS"):000} ms.");
+
+// or colon-syntax:
+logger.Information($"Processed {input:@SensorInput} in {time:TimeMS:000} ms.");
+
+// or anonymous object syntax (put the @ before the interpolated block, since @ is not allowed in identifiers)
 logger.Information($"Processed @{ new { SensorInput = input }} in { new { TimeMS = time}:000} ms.");
+
 // in plain Serilog this would be equivalent of:
 //logger.Information("Processed {@SensorInput} in {TimeMS:000}ms.", input, time);
 ```
