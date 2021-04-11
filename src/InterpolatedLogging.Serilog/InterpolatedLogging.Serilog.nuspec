@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>InterpolatedLogging.Serilog</id>
-    <version>1.0.1</version>
+    <version>2.0.2</version>
     <title>InterpolatedLogging.Serilog</title>
     <authors>Rick Drizin</authors>
     <owners>Rick Drizin</owners>
@@ -12,7 +12,7 @@
     <description>Extensions to Serilog to write Log Messages using Interpolated Strings without losing Structured Property Names</description>
     <copyright>Copyright Rick Drizin 2021</copyright>
     <tags>dapper;query builder</tags>
-    <repository type="git" url="https://github.com/Drizin/InterpolatedLogging" commit="8bac1eedcd8a5551ec6115eb95c4a119eec2d0e0" />
+    <repository type="git" url="https://github.com/Drizin/InterpolatedLogging" commit="79e843e83d51d8371328ab37ac7786c6f12cbc1a" />
     <dependencies>
     </dependencies>
   </metadata>

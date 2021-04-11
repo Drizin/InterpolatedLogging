@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>InterpolatedLogging.NLog</id>
-    <version>4.0.0</version>
+    <version>4.0.1</version>
     <title>InterpolatedLogging.NLog</title>
     <authors>Rick Drizin</authors>
     <owners>Rick Drizin</owners>
@@ -12,7 +12,7 @@
     <description>Extensions to NLog to write Log Messages using Interpolated Strings without losing Structured Property Names</description>
     <copyright>Copyright Rick Drizin 2021</copyright>
     <tags>dapper;query builder</tags>
-    <repository type="git" url="https://github.com/Drizin/InterpolatedLogging" commit="623a678f1cfc97aa77953d53f230ff0ab5cd3e33" />
+    <repository type="git" url="https://github.com/Drizin/InterpolatedLogging" commit="79e843e83d51d8371328ab37ac7786c6f12cbc1a" />
     <dependencies>
     </dependencies>
   </metadata>
