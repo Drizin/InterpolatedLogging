@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Compile Include="..\InterpolatedLogging\StructuredLogMessage.cs" Link="StructuredLogMessage.cs" />
+	<Compile Include="..\InterpolatedLogging\NamedProperty.cs" Link="NamedProperty.cs" />
   </ItemGroup>
 
   <ItemGroup>

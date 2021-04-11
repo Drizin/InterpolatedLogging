@@ -55,6 +55,12 @@ namespace InterpolatedLogging
             | RegexOptions.IgnorePatternWhitespace
             | RegexOptions.Compiled
             );
+        private static Regex colonSplit = new Regex("(^|:)(?<ArgFormat>(\\'([^'])*'|[^:']*)*)",
+            RegexOptions.CultureInvariant
+            | RegexOptions.IgnorePatternWhitespace
+            | RegexOptions.Compiled
+            );
+
         #endregion
 
         #region Parse
@@ -95,7 +101,12 @@ namespace InterpolatedLogging
 
                 sb.Append(currentTextBlock);
 
-                List<string> argFormats = argFormat.Split(new char[] { ',', '|' }, StringSplitOptions.RemoveEmptyEntries).Select(f => f.Trim()).ToList();
+                // Split multiple formats by colon (:), and accept literal colons surrounded by single quotes
+                //List<string> argFormats = argFormat.Split(new char[] { ':' }).Select(f => f.Replace("':'", ":")).ToList();
+                List<string> argFormats = string.IsNullOrEmpty(argFormat) ? new List<string>() :
+                    colonSplit.Matches(argFormat).Cast<Match>()
+                    .Select(m => m.Groups["ArgFormat"].Value.Replace("':'", ":")).ToList();
+
                 object arg = arguments[argPos];
                 if (argFormats.Contains("raw")) // interpolated arguments which are supposed to be rendered as raw strings, not as isolated properties
                 {
@@ -111,11 +122,38 @@ namespace InterpolatedLogging
                 Type argType = arg.GetType();
                 PropertyInfo[] props;
 
+                //if (argType.IsGenericType && argType.GetGenericTypeDefinition() == typeof(NamedProperty<>))
+                if (argType.IsSubclassOf(typeof(NamedProperty)))
+                {
+                    sb.Append("{" + prefixModifier + ((NamedProperty)arg).Name + (argFormat.Length > 0 ? ":" + argFormat : "") + "}");
+                    propertiesLst.Add(((NamedProperty)arg).Value);
+                    continue;
+                }
+
                 // anonymous type with single property - get property name
+                // e.g: " User {new { UserName = user }} " 
                 if (argType.Name.StartsWith("<>f__AnonymousType") && (props = argType.GetProperties()) != null && props.Length == 1)
                 {
                     sb.Append("{" + prefixModifier + props[0].Name + (argFormat.Length > 0 ? ":" + argFormat : "") + "}");
                     propertiesLst.Add(props[0].GetValue(arg));
+                    continue;
+                }
+
+                // Format contains Property Name
+                // e.g: " User {user:UserName} "
+                if (argFormats.Count == 1)
+                {
+                    sb.Append("{" + prefixModifier + argFormat + "}");
+                    propertiesLst.Add(arg);
+                    continue;
+                }
+
+                // Format contains Property Name and format
+                // e.g: " Date {now:Timestamp:yyyy-MM-dd HH:mm:sss} "
+                if (argFormats.Count == 2)
+                {
+                    sb.Append("{" + prefixModifier + argFormats[0] + ":" + argFormats[1] + "}");
+                    propertiesLst.Add(arg);
                     continue;
                 }
 

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
-namespace Serilog
+namespace Microsoft.Extensions.Logging
 {
     /// <summary>
     /// Extend Serilog ILogger with facades using Interpolated strings
