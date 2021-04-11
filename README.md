@@ -98,16 +98,37 @@ Serilog has this `@` destructuring operator which makes a single property be sto
 var input = new { Latitude = 25, Longitude = 134 };
 
 // NP-syntax:
-logger.Information($"Processed {NP(input, "@SensorInput")} in {NP(time, "TimeMS"):000} ms.");
+logger.Information($"Processed {NP(input, "@SensorInput")}.");
 
 // or colon-syntax:
-logger.Information($"Processed {input:@SensorInput} in {time:TimeMS:000} ms.");
+logger.Information($"Processed {input:@SensorInput}.");
 
 // or anonymous object syntax (put the @ before the interpolated block, since @ is not allowed in identifiers)
-logger.Information($"Processed @{ new { SensorInput = input }} in { new { TimeMS = time}:000} ms.");
+logger.Information($"Processed @{ new { SensorInput = input }}.");
 
 // in plain Serilog this would be equivalent of:
-//logger.Information("Processed {@SensorInput} in {TimeMS:000}ms.", input, time);
+//logger.Information("Processed {@SensorInput}.", input);
+```
+
+## Format specifiers
+
+You can obviously pre-format your objects and log them as formatted strings. 
+But if you want to pass the original object and yet define some specific format for it during the message rendering you can specify format identifiers as you would regularly do in an interpolated string:
+
+```cs
+int time = 15; // 15 milliseconds
+
+// NP-syntax:
+logger.Information($"Processed order in {NP(time, "TimeMS"):000} ms.");
+
+// or colon-syntax (property name comes first! then new colon and the format):
+logger.Information($"Processed order in {time:TimeMS:000} ms.");
+
+// or anonymous object syntax
+logger.Information($"Processed order in { new { TimeMS = time}:000} ms.");
+
+// in plain Serilog this would be equivalent of:
+//logger.Information("Processed order in {TimeMS:000}ms.", input, time);
 ```
 
 
