@@ -5,11 +5,11 @@
 Current Status:
 
 Library | Status | NuGet Package
------------- | -------------
-[**Serilog**](https://github.com/Drizin/InterpolatedLogging/tree/main/src/InterpolatedLogging.Serilog) | OK | https://www.nuget.org/packages/InterpolatedLogging.Serilog/
-[**Microsoft.Extensions.Logging**](https://github.com/Drizin/InterpolatedLogging/tree/main/src/InterpolatedLogging.Microsoft.Extensions.Logging) | OK | https://www.nuget.org/packages/InterpolatedLogging.Microsoft.Extensions.Logging/
-NLog | Pending | 
-log4net | Pending | 
+------------ | ------------- | -------------
+[**Serilog**](https://github.com/Drizin/InterpolatedLogging/tree/main/src/InterpolatedLogging.Serilog) | Working | [NuGet](https://www.nuget.org/packages/InterpolatedLogging.Serilog/)
+[**Microsoft.Extensions.Logging**](https://github.com/Drizin/InterpolatedLogging/tree/main/src/InterpolatedLogging.Microsoft.Extensions.Logging) | Working | [NuGet](https://www.nuget.org/packages/InterpolatedLogging.Microsoft.Extensions.Logging/)
+NLog | Pending |
+log4net | Pending |
 
 Most logging libraries support **structured logging**:
 
@@ -72,7 +72,7 @@ This is a brand new project, and your contribution can help a lot.
 
 **Would you like to collaborate?**  
 
-Please submit a pull-request or if you prefer you can [create an issue](https://github.com/Drizin/InterpolatedLogging/issues) or [contact me](http://drizin.io/pages/Contact/) to discuss your idea.
+Please submit a pull request or if you prefer you can [create an issue](https://github.com/Drizin/InterpolatedLogging/issues) or [contact me](http://drizin.io/pages/Contact/) to discuss your idea.
 
 ## License
 MIT License
