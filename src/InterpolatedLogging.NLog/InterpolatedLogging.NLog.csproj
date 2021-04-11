@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
+    <Authors>Rick Drizin</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Drizin/InterpolatedLogging/</PackageProjectUrl>
+    <Description>Extensions to NLog to write Log Messages using Interpolated Strings without losing Structured Property Names</Description>
+    <Copyright>Rick Drizin</Copyright>
+    <Company>Rick Drizin</Company>
+    <Version>4.0.0</Version>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>InterpolatedLogging.NLog</PackageId>
+    <DocumentationFile>InterpolatedLogging.NLog.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\InterpolatedLogging\StructuredLogMessage.cs" Link="StructuredLogMessage.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="4.*" />
+  </ItemGroup>
+
+</Project>
