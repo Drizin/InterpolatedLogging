@@ -95,9 +95,9 @@ If you want to embed raw strings in your messages (don't want them to be saved a
 logger.InterpolatedInformation($"User {new { UserName = name }} logged as {role:raw}");
 ```
 
-## Serilog destructuring operator
+## Destructuring operator
 
-Serilog has this `@` destructuring operator which makes a single property be stored with its internal structure (instead of just invoking `ToString()` and saving the serialized property).
+Serilog and NLog supports the `@` destructuring operator which makes a single property be stored with its internal structure (instead of just invoking `ToString()` and saving the serialized property).
 
 ```cs
 var input = new { Latitude = 25, Longitude = 134 };
