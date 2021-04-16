@@ -136,6 +136,18 @@ logger.Information($"Processed order in { new { TimeMS = time}:000} ms.");
 //logger.Information("Processed order in {TimeMS:000}ms.", input, time);
 ```
 
+# Performance / Benchmarks 
+
+Some people are worried that using FormattableString is much slower than using the regular strings. And some have mentioned that Microsoft is working on a [proposal](https://github.com/dotnet/designs/pull/195) for a [Logging Generator](https://github.com/geeknoid/LoggingGenerator) 
+which uses C# 9 source generators and which should convert decorated partial-methods into strongly-typed logging functions (without needing string interpolation).
+
+There are benchmark tests [here](https://github.com/Drizin/InterpolatedLogging/tree/main/src/InterpolatedLogging.Microsoft.Extensions.Logging.Tests/BenchmarkTests.cs) comparing InterpolatedLogging with Microsoft code, 
+and the results show that the performance of both libraries is nearly identical, and frequently InterpolatedLogging is even faster! Looks like Interpolated Strings are not so bad as we thought.
+
+![Benchmarks - Microsoft LoggingGenerator](src/InterpolatedLogging.Microsoft.Extensions.Logging.Tests/BenchmarkTests-Result.png)
+
+
+
 
 # Collaborate
 

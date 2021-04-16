@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterpolatedLogging.Microso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterpolatedLogging.NLog", "InterpolatedLogging.NLog\InterpolatedLogging.NLog.csproj", "{5874FE09-2F1F-48AA-990A-AA1214AA2BF5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterpolatedLogging.Microsoft.Extensions.Logging.Tests", "InterpolatedLogging.Microsoft.Extensions.Logging.Tests\InterpolatedLogging.Microsoft.Extensions.Logging.Tests.csproj", "{D46D5A79-1BB2-4834-988C-FB94827A479D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{5874FE09-2F1F-48AA-990A-AA1214AA2BF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5874FE09-2F1F-48AA-990A-AA1214AA2BF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5874FE09-2F1F-48AA-990A-AA1214AA2BF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D46D5A79-1BB2-4834-988C-FB94827A479D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D46D5A79-1BB2-4834-988C-FB94827A479D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D46D5A79-1BB2-4834-988C-FB94827A479D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D46D5A79-1BB2-4834-988C-FB94827A479D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <Company>Rick Drizin</Company>
+
+    <Copyright>Rick Drizin</Copyright>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+    <PackageProjectUrl>https://github.com/Drizin/InterpolatedLogging/</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0-preview.1.21102.12" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
+    <PackageReference Include="Npgsql" Version="4.1.4" />
+    <PackageReference Include="nunit" Version="3.10.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InterpolatedLogging.Microsoft.Extensions.Logging\InterpolatedLogging.Microsoft.Extensions.Logging.csproj" />
+  </ItemGroup>
+
+</Project>
