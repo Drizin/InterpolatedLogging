@@ -138,11 +138,11 @@ logger.Information($"Processed order in { new { TimeMS = time}:000} ms.");
 
 # Performance / Benchmarks 
 
-Some people are worried that using FormattableString is much slower than using the regular strings. And some have mentioned that Microsoft is working on a [proposal](https://github.com/dotnet/designs/pull/195) for a [Logging Generator](https://github.com/geeknoid/LoggingGenerator) 
-which uses C# 9 source generators and which should convert decorated partial-methods into strongly-typed logging functions (without needing string interpolation).
+Some people are worried that using FormattableString is much slower than using the regular strings. And some have mentioned that Microsoft is working on a proposal for a [Logging Generator](https://github.com/geeknoid/LoggingGenerator) 
+which uses C# 9 source generators to convert decorated partial-methods into strongly-typed logging functions (without needing string interpolation).
 
-There are benchmark tests [here](https://github.com/Drizin/InterpolatedLogging/tree/main/src/InterpolatedLogging.Microsoft.Extensions.Logging.Tests/BenchmarkTests.cs) comparing InterpolatedLogging with Microsoft code, 
-and the results show that the performance of both libraries is nearly identical, and frequently InterpolatedLogging is even faster! Looks like Interpolated Strings are not so bad as we thought.
+There are benchmark tests [here](https://github.com/Drizin/InterpolatedLogging/tree/main/src/InterpolatedLogging.Microsoft.Extensions.Logging.Tests/BenchmarkTests.cs) comparing how much overhead InterpolatedLogging adds on top of this Microsoft strongly-typed solution, 
+and the results show that InterpolatedLogging (using `FormattableString`) timings are in the same order of magnitude. When using Console sink the performance overhead was between 4% and 19%, and this difference probably gets smaller when using external sinks (like ElasticSearch/Splunk). If you're doing async logging this latency increment is probably negligible.
 
 ![Benchmarks - Microsoft LoggingGenerator](src/InterpolatedLogging.Microsoft.Extensions.Logging.Tests/BenchmarkTests-Result.png)
 
@@ -155,7 +155,7 @@ This is a brand new project, and your contribution can help a lot.
 
 **Would you like to collaborate?**  
 
-Please submit a pull request or if you prefer you can [create an issue](https://github.com/Drizin/InterpolatedLogging/issues) or [contact me](http://drizin.io/pages/Contact/) to discuss your idea.
+Please submit a pull request or if you prefer you can [create an issue](https://github.com/Drizin/InterpolatedLogging/issues) to discuss your idea.
 
 ## License
 MIT License
