@@ -25,11 +25,11 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.EventLog" Version="5.0.0" />
-    <PackageReference Include="Npgsql" Version="4.1.4" />
-    <PackageReference Include="nunit" Version="3.10.1" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+    <PackageReference Include="Npgsql" Version="4.1.5" />
+    <PackageReference Include="nunit" Version="3.11.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
   </ItemGroup>
 
   <ItemGroup>
