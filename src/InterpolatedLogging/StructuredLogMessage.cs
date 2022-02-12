@@ -143,7 +143,7 @@ namespace InterpolatedLogging
                 // e.g: " User {user:UserName} "
                 if (argFormats.Count == 1)
                 {
-                    sb.Append("{" + prefixModifier + argFormat + "}");
+                    sb.Append("{" + prefixModifier + argFormat.Trim(' ') + "}");
                     propertiesLst.Add(arg);
                     continue;
                 }
@@ -152,7 +152,7 @@ namespace InterpolatedLogging
                 // e.g: " Date {now:Timestamp:yyyy-MM-dd HH:mm:sss} "
                 if (argFormats.Count == 2)
                 {
-                    sb.Append("{" + prefixModifier + argFormats[0] + ":" + argFormats[1] + "}");
+                    sb.Append("{" + prefixModifier + argFormats[0].Trim(' ') + ":" + argFormats[1] + "}");
                     propertiesLst.Add(arg);
                     continue;
                 }

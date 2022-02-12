@@ -114,6 +114,23 @@ namespace InterpolatedLogging.Tests
         }
 
         [Test]
+        public void ColonSyntax_Trim_PropName_Whitespace()
+        {
+            string name = "RickDrizin";
+            long elapsedTime = 315;
+            int orderId = 1001;
+            DateTime now = DateTime.Now;
+            var msg = new StructuredLogMessage($"User '{name: UserName}' created Order {orderId: OrderId} at {now : Date}, operation took {elapsedTime : OperationElapsedTime}ms");
+
+            Assert.AreEqual("User '{UserName}' created Order {OrderId} at {Date}, operation took {OperationElapsedTime}ms", msg.MessageTemplate);
+            Assert.AreEqual(4, msg.Properties.Length);
+            Assert.AreEqual(name, msg.Properties[0]);
+            Assert.AreEqual(orderId, msg.Properties[1]);
+            Assert.AreEqual(now, msg.Properties[2]);
+            Assert.AreEqual(elapsedTime, msg.Properties[3]);
+        }
+
+        [Test]
         public void AnonymousSyntax_with_ExplicitFormat()
         {
             DateTime now = DateTime.Now;
