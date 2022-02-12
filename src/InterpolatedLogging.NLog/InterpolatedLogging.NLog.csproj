@@ -8,12 +8,23 @@
     <Description>Extensions to NLog to write Log Messages using Interpolated Strings without losing Structured Property Names</Description>
     <Copyright>Rick Drizin</Copyright>
     <Company>Rick Drizin</Company>
-    <Version>4.0.1</Version>
+    <Version>4.0.2</Version>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>InterpolatedLogging.NLog</PackageId>
     <DocumentationFile>InterpolatedLogging.NLog.xml</DocumentationFile>
   </PropertyGroup>
 
+  <Choose>
+    <When Condition="'$(Configuration)' == 'Debug'">
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageOutputPath>..\packages-local\</PackageOutputPath>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+	
   <ItemGroup>
     <Compile Include="..\InterpolatedLogging\StructuredLogMessage.cs" Link="StructuredLogMessage.cs" />
 	<Compile Include="..\InterpolatedLogging\NamedProperty.cs" Link="NamedProperty.cs" />

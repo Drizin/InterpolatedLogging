@@ -8,11 +8,22 @@
     <Description>Extensions to Microsoft.Extensions.Logging to write Log Messages using Interpolated Strings without losing Structured Property Names</Description>
     <Copyright>Rick Drizin</Copyright>
     <Company>Rick Drizin</Company>
-    <Version>5.0.1</Version>
+    <Version>5.0.2</Version>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>InterpolatedLogging.Microsoft.Extensions.Logging</PackageId>
     <DocumentationFile>InterpolatedLogging.Microsoft.Extensions.Logging.xml</DocumentationFile>
   </PropertyGroup>
+	
+  <Choose>
+    <When Condition="'$(Configuration)' == 'Debug'">
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageOutputPath>..\packages-local\</PackageOutputPath>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
 
   <ItemGroup>
     <Compile Include="..\InterpolatedLogging\StructuredLogMessage.cs" Link="StructuredLogMessage.cs" />
