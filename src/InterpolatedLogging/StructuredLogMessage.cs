@@ -119,11 +119,11 @@ namespace InterpolatedLogging
                     continue;
                 }
 
-                Type argType = arg.GetType();
+                Type argType = arg?.GetType();
                 PropertyInfo[] props;
 
                 //if (argType.IsGenericType && argType.GetGenericTypeDefinition() == typeof(NamedProperty<>))
-                if (argType.IsSubclassOf(typeof(NamedProperty)))
+                if (argType != null && argType.IsSubclassOf(typeof(NamedProperty)))
                 {
                     sb.Append("{" + prefixModifier + ((NamedProperty)arg).Name + (argFormat.Length > 0 ? ":" + argFormat : "") + "}");
                     propertiesLst.Add(((NamedProperty)arg).Value);
@@ -132,7 +132,7 @@ namespace InterpolatedLogging
 
                 // anonymous type with single property - get property name
                 // e.g: " User {new { UserName = user }} " 
-                if (argType.Name.StartsWith("<>f__AnonymousType") && (props = argType.GetProperties()) != null && props.Length == 1)
+                if (argType != null && argType.Name.StartsWith("<>f__AnonymousType") && (props = argType.GetProperties()) != null && props.Length == 1)
                 {
                     sb.Append("{" + prefixModifier + props[0].Name + (argFormat.Length > 0 ? ":" + argFormat : "") + "}");
                     propertiesLst.Add(props[0].GetValue(arg));

@@ -171,6 +171,20 @@ namespace InterpolatedLogging.Tests
             Assert.AreEqual(now, msg.Properties[0]);
         }
 
+        [Test]
+        public void NullValues_Shouldnt_Crash()
+        {
+            string name = null;
+            int? orderId = null;
+            var msg = new StructuredLogMessage($"User '{name:UserName}' created Order {orderId:OrderId}");
+
+            Assert.DoesNotThrow(() => { var prop = msg.Properties; });
+            Assert.AreEqual("User '{UserName}' created Order {OrderId}", msg.MessageTemplate);
+            Assert.AreEqual(2, msg.Properties.Length);
+            Assert.AreEqual(name, msg.Properties[0]);
+            Assert.AreEqual(orderId, msg.Properties[1]);
+        }
+
 
         [Test]
         public void PerformanceTests()
