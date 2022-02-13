@@ -10,7 +10,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Extensions to NLog to write Log Messages using Interpolated Strings without losing Structured Property Names</description>
     <copyright>Copyright Rick Drizin 2021</copyright>
-    <tags>dapper;query builder</tags>
+    <tags>nlog;interpolated;interpolation;formattablestring</tags>
     <dependencies>
     </dependencies>
   </metadata>
