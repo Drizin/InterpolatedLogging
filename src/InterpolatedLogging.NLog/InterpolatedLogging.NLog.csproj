@@ -8,10 +8,12 @@
     <Description>Extensions to NLog to write Log Messages using Interpolated Strings without losing Structured Property Names</Description>
     <Copyright>Rick Drizin</Copyright>
     <Company>Rick Drizin</Company>
-    <Version>4.0.2</Version>
+    <Version>4.0.4</Version>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>InterpolatedLogging.NLog</PackageId>
     <DocumentationFile>InterpolatedLogging.NLog.xml</DocumentationFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 
   <Choose>
@@ -31,6 +33,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="NLog" Version="4.*" />
   </ItemGroup>
 
