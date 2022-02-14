@@ -8,28 +8,21 @@
     <Description>Extensions to Serilog to write Log Messages using Interpolated Strings without losing Structured Property Names</Description>
     <Copyright>Rick Drizin</Copyright>
     <Company>Rick Drizin</Company>
-    <Version>2.0.4</Version>
+    <Version>2.0.5</Version>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>InterpolatedLogging.Serilog</PackageId>
     <DocumentationFile>InterpolatedLogging.Serilog.xml</DocumentationFile>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <!-- Include symbol files (*.pdb) in the main .nupkg -->
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+	<PackageReadmeFile>NuGetReadMe.md</PackageReadmeFile>
   </PropertyGroup>
 
-  <Choose>
-    <When Condition="'$(Configuration)' == 'Debug'">
-    </When>
-    <Otherwise>
-      <PropertyGroup>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageOutputPath>..\packages-local\</PackageOutputPath>
-      </PropertyGroup>
-    </Otherwise>
-  </Choose>
-	
   <ItemGroup>
     <Compile Include="..\InterpolatedLogging\StructuredLogMessage.cs" Link="StructuredLogMessage.cs" />
 	<Compile Include="..\InterpolatedLogging\NamedProperty.cs" Link="NamedProperty.cs" />
+	<None Include="NuGetReadMe.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
   <ItemGroup>
