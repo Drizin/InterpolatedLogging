@@ -32,8 +32,8 @@ namespace InterpolatedLogging
 
     /// <summary>
     /// Helpers to create Named Properties (properties with Name and Value).
-    /// You can either add "using static InterpolatedLogging.NP;" and invoke directly NamedProperty() methods,
-    /// or add "using InterpolatedLogging;" and invoke methods as "NP.NamedProperty()".
+    /// You can either add "using static InterpolatedLogging.NamedProperties;" and invoke directly NP{T}() factory,
+    /// or add "using InterpolatedLogging;" and invoke factory as "NamedProperties.NP{T}()".
     /// </summary>
     public class NamedProperties
     {

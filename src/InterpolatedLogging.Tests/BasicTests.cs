@@ -185,6 +185,26 @@ namespace InterpolatedLogging.Tests
             Assert.AreEqual(orderId, msg.Properties[1]);
         }
 
+        [Test]
+        public void Combine_Two_InterpolatedStrings()
+        {
+            string name = "RickDrizin";
+            int orderId = 1001;
+
+            // JoinableString() allows us to append multiple interpolated strings using + operator, so we can break long log messages in multiple lines
+            // but for best performance prefer $@
+            var msg = new StructuredLogMessage(new JoinableString()
+                + $"User '{name:UserName}'\n"
+                + $"created Order {orderId:OrderId}"
+            );
+
+            Assert.AreEqual("User '{UserName}'\ncreated Order {OrderId}", msg.MessageTemplate);
+            Assert.AreEqual(2, msg.Properties.Length);
+            Assert.AreEqual(name, msg.Properties[0]);
+            Assert.AreEqual(orderId, msg.Properties[1]);
+        }
+
+
 
         [Test]
         public void PerformanceTests()
