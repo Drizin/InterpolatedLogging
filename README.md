@@ -1,3 +1,7 @@
+[![Nuget](https://img.shields.io/nuget/v/InterpolatedLogging.Serilog?label=InterpolatedLogging.Serilog)](https://www.nuget.org/packages/InterpolatedLogging.Serilog)
+[![Nuget](https://img.shields.io/nuget/v/InterpolatedLogging.Microsoft.Extensions.Logging?label=InterpolatedLogging.Microsoft.Extensions.Logging)](https://www.nuget.org/packages/InterpolatedLogging.Microsoft.Extensions.Logging)
+[![Nuget](https://img.shields.io/nuget/v/InterpolatedLogging.NLog?label=InterpolatedLogging.NLog)](https://www.nuget.org/packages/InterpolatedLogging.NLog)
+
 # Interpolated Logging
 
 **Extensions to Logging Libraries to write Log Messages using Interpolated Strings without losing Structured Property Names** 
