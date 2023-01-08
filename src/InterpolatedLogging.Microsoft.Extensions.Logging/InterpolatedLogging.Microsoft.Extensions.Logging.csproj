@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net472;net5.0</TargetFrameworks>
     <Authors>Rick Drizin</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Drizin/InterpolatedLogging/</PackageProjectUrl>
     <Description>Extensions to Microsoft.Extensions.Logging to write Log Messages using Interpolated Strings without losing Structured Property Names</Description>
     <Copyright>Rick Drizin</Copyright>
     <Company>Rick Drizin</Company>
-    <Version>5.0.6</Version>
+    <Version>5.1.0</Version>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>InterpolatedLogging.Microsoft.Extensions.Logging</PackageId>
     <DocumentationFile>InterpolatedLogging.Microsoft.Extensions.Logging.xml</DocumentationFile>
